@@ -1,8 +1,9 @@
 const { UserModel } = require('../schemas/user');
 
 class User {
-    static async getUserInfo({}) {
-        return
+    static async findById({ username }) {
+        const user = await UserModel.findOne({ username })
+        return user
     }
 
     static async create({}) {

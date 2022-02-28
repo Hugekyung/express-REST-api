@@ -1,6 +1,6 @@
-# express-REST-api
+# `express-REST-api`
 
-## `express로 간단한 api 구현하기`
+## express로 간단한 api 구현하기
 
 - 데이터베이스 : mongoDB Cloud, mongoose
     - user schema
@@ -48,7 +48,7 @@
 ```
 </br></br>
 
-## `단계별 구현`
+## `단계별 구현 ing~`
 1. session-file-store와 passport 기반 로그인/로그아웃 기능 구현
     - /db/models/User.js - User 클래스 구현
     - /passport.js - Serialize, Deserialize, Strategy 구현
