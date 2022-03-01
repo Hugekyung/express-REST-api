@@ -15,4 +15,4 @@ const userSchema = new Schema({
     }
 })
 
-module.UserModel = model('User', userSchema)
+exports.UserModel = model('User', userSchema)

@@ -1,6 +1,6 @@
 require('dotenv').config()
-const fileStore = require('session-file-store')(session)
 const session = require("express-session")
+const fileStore = require('session-file-store')(session)
 
 
 // Initialization for using session & passport
@@ -10,6 +10,7 @@ module.exports = (app) => app.use(session({
   saveUninitialized: false,
   cookie: {
     maxAge: 60 * 60 * 1000, // 1 hour
+    // maxAge: 60 * 1000, // test 60초 -> 60초가 지난 뒤 새로고침하면 로그인이 자동으로 풀림
     httpOnly: true,
     secure: false,
   },
