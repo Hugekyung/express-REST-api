@@ -11,6 +11,7 @@ const userRouter = require('./routes/userRouter')
 const app = express()
 const port = PORT || 3000
 
+
 // POST 요청 시 Body 사용을 위한 기본코드
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

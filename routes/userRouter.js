@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const User = require('../db/models/User')
+const login_required = require('../middlewares/login_required')
 
 const router = Router()
 
@@ -30,10 +31,29 @@ router.post('/', async (req, res) => {
 })
 
 // 특정 유저 정보 조회
-router.get('/:username', async (req, res) => {
+router.get('/:username', login_required, async (req, res) => {
     const username = req.params.username
-    const userData = await User.findById({ username })
-    res.json({ userData })
+    if (req.user.username === username) {
+        const userData = await User.findById({ username })
+        res.json({ userData })
+    } else {
+        { return res.status(403).send("403 Error")}
+    }
+})
+
+// 유저 삭제
+router.delete('/:username', login_required, async (req, res) => {
+    const username = req.params.username
+    if (req.user.username === username) {
+        try {
+            const result = await User.remove({ username })
+            if (result) {
+                res.json({ status: "deleted success"})
+            }
+        } catch (err) {
+            console.log("Error removing username >>", err)
+        }
+    }
 })
 
 

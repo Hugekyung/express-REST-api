@@ -48,7 +48,7 @@
 1. session-file-store와 passport 기반 로그인/로그아웃 기능 구현
     - /passport.js - Serialize, Deserialize, Strategy 구현 ✅
     - /routes/authRouter.js - 유저 로그인/로그아웃 라우터 구현 ✅
-    - /db/models/User.js - User 클래스 구현
-    - /routes/userRouter.js - 유저정보 조회/생성/수정/삭제 구현
-    - login_required 미들웨어 만들고, 적절한 곳에 추가하기
+    - /routes/userRouter.js - 유저정보 조회/생성/삭제 구현 ✅
+    - /db/models/User.js - User 클래스 구현(조회/생성/삭제) ✅
+    - login_required 미들웨어 만들고, 적절한 곳에 추가하기 ✅
     - 게시글 api 구현

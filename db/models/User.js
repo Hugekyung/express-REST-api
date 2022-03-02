@@ -23,12 +23,20 @@ class User {
         }
     }
 
+    // 비밀번호 수정?
     static async update({}) {
         return
     }
 
-    static async delete({}) {
-        return
+    // 회원 로그인 상태일 때
+    static async remove({ username }) {
+        try {
+            await UserModel.deleteOne({ username: username })
+            return true
+        } catch (err) {
+            console.log("Error deleting user >>", err)
+            return false
+        }
     }
 }
 
