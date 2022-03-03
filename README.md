@@ -22,7 +22,7 @@
 - POST /login : 로그인 정보 등록
 - POST /logout : 로그아웃 페이지
 ```
-</br></br>
+</br>
 
 ### <기본기능: 회원관리 api>
 ```
@@ -32,7 +32,7 @@
 - PUT /users/:username : 회원 정보 수정
 - DELETE /users/:username : 회원 정보 삭제
 ```
-</br></br>
+</br>
 
 ### <추가기능: 게시글 api>
 ```
@@ -52,3 +52,8 @@
     - /db/models/User.js - User 클래스 구현(조회/생성/삭제) ✅
     - login_required 미들웨어 만들고, 적절한 곳에 추가하기 ✅
     - 게시글 api 구현
+
+    - 추가++ session-file-store => redis로 변경해보기 ✅
+    </br></br>
+
+2. JWT 기반 로그인/로그아웃 기능 구현

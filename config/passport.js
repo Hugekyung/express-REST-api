@@ -13,13 +13,19 @@ module.exports = (app) => {
     // session에 유저정보를 저장하는 단계
     passport.serializeUser((user, done) => {
         console.log("최초 인증한(로그인) 유저 >> ", user)
-        done(null, user)
+        console.log("id >>", user.username)
+        done(null, user.username) // session의 메모리를 경량화하기 위해 user객체 전부가 아닌 username만 보낸다.
     })
 
     // Deserialize: 이미 로그인한(인증된) 유저일 경우 호출
-    passport.deserializeUser((user, done) => {
-        console.log("이미 인증된 유저에 대한 처리")
-        done(null, user)
+    // passport.deserializeUser((user, done) => {
+    //     console.log("이미 인증된 유저에 대한 처리")
+    //     done(null, user)
+    // })
+
+    passport.deserializeUser((username, done) => {
+        User.findById({ username })
+            .then((user) => done(null, user))
     })
 
     // Strategy
