@@ -51,9 +51,11 @@
     - /routes/userRouter.js - 유저정보 조회/생성/삭제 구현 ✅
     - /db/models/User.js - User 클래스 구현(조회/생성/삭제) ✅
     - login_required 미들웨어 만들고, 적절한 곳에 추가하기 ✅
-    - 게시글 api 구현
+    - 게시글 api 구현(나중에 추가하기)
 
     - 추가++ session-file-store => redis로 변경해보기 ✅
     </br></br>
 
-2. JWT 기반 로그인/로그아웃 기능 구현
+2. JWT 기반 로그인/로그아웃 기능 구현(passport-JWT 기반)
+    - /config/passport-jwt.js - JWT 기반 Serialize, Deserialize, Strategy 구현
+    - redis storage에 토큰 저장하기 구현
