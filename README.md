@@ -57,5 +57,5 @@
     </br></br>
 
 2. JWT 기반 로그인/로그아웃 기능 구현(passport-JWT 기반)
-    - /config/passport-jwt.js - JWT 기반 Serialize, Deserialize, Strategy 구현
+    - /config/passport-jwt.js - JWT 기반 Strategy 구현
     - redis storage에 토큰 저장하기 구현

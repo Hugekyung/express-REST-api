@@ -6,6 +6,9 @@ const router = Router()
 
 // 유저 회원가입 폼
 router.get('/', (req, res) => {
+    if (req.user) {
+        return res.status(403).send("not allow page")
+    }
     res.send(`
         <h1>EXPRESS 회원관리 API TEST</h1>
         <h3>회원가입</h3>
@@ -37,7 +40,7 @@ router.get('/:username', login_required, async (req, res) => {
         const userData = await User.findById({ username })
         res.json({ userData })
     } else {
-        { return res.status(403).send("403 Error")}
+        return res.status(403).send("403 Error")
     }
 })
 
