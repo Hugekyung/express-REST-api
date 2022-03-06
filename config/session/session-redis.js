@@ -3,7 +3,7 @@ const session = require("express-session")
 const { createClient } = require("redis")
 const RedisStore = require('connect-redis')(session)
 
-let redisClient = createClient({ host: process.env.REDIS_HOST, legacyMode: true })
+const redisClient = createClient({ host: process.env.REDIS_HOST, legacyMode: true })
 redisClient.connect().catch(console.error)
 
 // Initialization for using session with Redis
