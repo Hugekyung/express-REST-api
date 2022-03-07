@@ -3,7 +3,7 @@ const { PORT, MONGODB_URI } = process.env
 const express = require('express')
 const mongoose = require('mongoose')
 const sessionConfig = require('./config/session')
-const passportConfig = require('./config/passport/passport')
+const passportConfig = require('./config/passport/passport-local')
 
 const indexRouter = require('./routes/indexRouter')
 const userRouter = require('./routes/userRouter')

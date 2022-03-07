@@ -54,8 +54,26 @@
     - 게시글 api 구현(나중에 추가하기)
 
     - 추가++ session-file-store => redis로 변경해보기 ✅
-    </br></br>
+    
+```
+// session-file-store 방식
+$ yarn dev
 
-2. JWT 기반 로그인/로그아웃 기능 구현(passport-JWT 기반)
-    - /config/passport-jwt.js - JWT 기반 Strategy 구현
-    - redis storage에 토큰 저장하기 구현
+// redis 방식
+$ redis-server (redis가 설치되었다고 가정)
+$ yarn redis
+```
+</br></br>
+
+2. JWT 기반 로그인/로그아웃 기능 구현
+    - /config/passport-jwt.js - passport-local Strategy 구현 ✅
+    - /config/passport-jwt.js - passport-jwt Strategy 구현 ✅
+
+        (구현했으나 passport-jwt의 경우 사용하지 않고 별도의 검증 미들웨어를 작성해 적용함)
+    
+```
+$ yarn jwt
+```
+</br></br>
+
+3. JWT 기반 Access-token, Refresh-token 인증방식 구현

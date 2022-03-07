@@ -4,7 +4,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 const sessionConfigRedis = require('./config/session/session-redis')
-const passportConfig = require('./config/passport/passport')
+const passportConfig = require('./config/passport/passport-local')
 
 const indexRouter = require('./routes/indexRouter')
 const userRouter = require('./routes/userRouter')

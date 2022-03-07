@@ -3,11 +3,16 @@ const { PORT, MONGODB_URI } = process.env
 const express = require('express')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
+const passport = require('passport')
 
-const passport = require('./config/passport/passport-jwt')
-const indexRouter = require('./routes/indexRouter')
 const userRouter = require('./routes/userRouter')
 const authRouter = require('./routes/authRouter')
+
+const jwtAuthCheck = require('./middlewares/jwt-auth-check')
+const loginRequired = require('./middlewares/login_required')
+// const { localStrategy, jwtStrategy } = require('./config/passport/jwt')
+
+require('./config/passport/passport-jwt')() // passport-jwt에 있는 Strategy를 passport.use로 등록
 
 const app = express()
 const port = PORT || 3000
@@ -27,11 +32,12 @@ async function connectionDB() {
 }
 
 app.use(passport.initialize());
-// JWTpassportConfig() // passport-jwt 초기화 & 전략 설정 등
+// passport.use(localStrategy)
+// app.use(passport.use(jwtStrategy))
+// app.use(jwtAuthCheck) // 모든 경로의 라우터에 적용될 미들웨어
 
-app.use('/', indexRouter) // 메인페이지, 로그아웃
 app.use('/auth', authRouter) // login
-app.use('/users', userRouter) // 유저정보 조회, 생성, 수정, 삭제 -> login_required 미들웨어 추가해야할듯?
+app.use('/users', loginRequired, jwtAuthCheck, userRouter) // 유저정보 조회, 생성, 수정, 삭제
 
 app.listen(port, () => {
     console.log(`express app listen ${port} port...`)
