@@ -10,7 +10,6 @@ const authRouter = require('./routes/authRouter')
 
 const jwtAuthCheck = require('./middlewares/jwt-auth-check')
 const loginRequired = require('./middlewares/login_required')
-// const { localStrategy, jwtStrategy } = require('./config/passport/jwt')
 
 require('./config/passport/passport-jwt')() // passport-jwt에 있는 Strategy를 passport.use로 등록
 
@@ -32,9 +31,6 @@ async function connectionDB() {
 }
 
 app.use(passport.initialize());
-// passport.use(localStrategy)
-// app.use(passport.use(jwtStrategy))
-// app.use(jwtAuthCheck) // 모든 경로의 라우터에 적용될 미들웨어
 
 app.use('/auth', authRouter) // login
 app.use('/users', loginRequired, jwtAuthCheck, userRouter) // 유저정보 조회, 생성, 수정, 삭제

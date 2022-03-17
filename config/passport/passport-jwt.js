@@ -32,7 +32,6 @@ const jwtStrategy = new JwtStrategy(opts, (jwt_payload, done) => {
 })
 
 // 유저 로그인 정보에 대한 확인을 위해 localStrategy 사용
-
 const localStrategy = new LocalStrategy({
         usernameField: 'username', // 클라이언트에서 받는 변수를 usernameField에 담아 다음 함수에서 사용한다.
         passwordField: 'password',
